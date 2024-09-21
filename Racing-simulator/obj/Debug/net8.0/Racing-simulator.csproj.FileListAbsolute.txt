@@ -1,0 +1,17 @@
+C:\Users\i.prosnekov\source\repos\Racing-simulator\Racing-simulator\bin\Debug\net8.0\Racing-simulator.exe
+C:\Users\i.prosnekov\source\repos\Racing-simulator\Racing-simulator\bin\Debug\net8.0\Racing-simulator.deps.json
+C:\Users\i.prosnekov\source\repos\Racing-simulator\Racing-simulator\bin\Debug\net8.0\Racing-simulator.runtimeconfig.json
+C:\Users\i.prosnekov\source\repos\Racing-simulator\Racing-simulator\bin\Debug\net8.0\Racing-simulator.dll
+C:\Users\i.prosnekov\source\repos\Racing-simulator\Racing-simulator\bin\Debug\net8.0\Racing-simulator.pdb
+C:\Users\i.prosnekov\source\repos\Racing-simulator\Racing-simulator\obj\Debug\net8.0\Racing-simulator.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\i.prosnekov\source\repos\Racing-simulator\Racing-simulator\obj\Debug\net8.0\Racing-simulator.AssemblyInfoInputs.cache
+C:\Users\i.prosnekov\source\repos\Racing-simulator\Racing-simulator\obj\Debug\net8.0\Racing-simulator.AssemblyInfo.cs
+C:\Users\i.prosnekov\source\repos\Racing-simulator\Racing-simulator\obj\Debug\net8.0\Racing-simulator.csproj.CoreCompileInputs.cache
+C:\Users\i.prosnekov\source\repos\Racing-simulator\Racing-simulator\obj\Debug\net8.0\Racing-simulator.dll
+C:\Users\i.prosnekov\source\repos\Racing-simulator\Racing-simulator\obj\Debug\net8.0\refint\Racing-simulator.dll
+C:\Users\i.prosnekov\source\repos\Racing-simulator\Racing-simulator\obj\Debug\net8.0\Racing-simulator.pdb
+C:\Users\i.prosnekov\source\repos\Racing-simulator\Racing-simulator\obj\Debug\net8.0\Racing-simulator.genruntimeconfig.cache
+C:\Users\i.prosnekov\source\repos\Racing-simulator\Racing-simulator\obj\Debug\net8.0\ref\Racing-simulator.dll
+C:\Users\i.prosnekov\source\repos\Racing-simulator\Racing-simulator\bin\Debug\net8.0\Spectre.Console.dll
+C:\Users\i.prosnekov\source\repos\Racing-simulator\Racing-simulator\obj\Debug\net8.0\Racing-simulator.csproj.AssemblyReference.cache
+C:\Users\i.prosnekov\source\repos\Racing-simulator\Racing-simulator\obj\Debug\net8.0\Racing-s.F87C803B.Up2Date
