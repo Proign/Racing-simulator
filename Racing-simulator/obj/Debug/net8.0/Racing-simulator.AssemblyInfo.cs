@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Racing-simulator")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+29087f42f44ee0e60d48546a6ebe7c449cec63b3")]
 [assembly: System.Reflection.AssemblyProductAttribute("Racing-simulator")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Racing-simulator")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
