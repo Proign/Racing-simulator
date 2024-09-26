@@ -3,12 +3,6 @@ using Spectre.Console;
 
 namespace RacingSimulator.RaceTypes
 {
-    public interface IRaceType
-    {
-        string Type { get; }
-        void RegisterTransport(Race race, Transport.Transport transport);
-    }
-
     public class GroundRace : IRaceType
     {
         public string Type => "ground";

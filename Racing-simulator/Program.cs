@@ -1,9 +1,9 @@
 ﻿using RacingSimulator.RaceEntities;
+using static RacingSimulator.RaceEntities.Race;
 using RacingSimulator.RaceTypes;
 using RacingSimulator.Transport;
 using RacingSimulator.Weather;
 using Spectre.Console;
-using static RacingSimulator.RaceEntities.Race;
 
 namespace RacingSimulatorApp
 {
@@ -49,6 +49,8 @@ namespace RacingSimulatorApp
                 }
                 else if (response == "n")
                 {
+                    AnsiConsole.Clear();
+                    AnsiConsole.MarkupLine("[bold red]Выход из программы.[/]");
                     return false;
                 }
                 AnsiConsole.Clear();

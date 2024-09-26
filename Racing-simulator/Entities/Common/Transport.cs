@@ -4,11 +4,6 @@ using Spectre.Console;
 
 namespace RacingSimulator.Transport
 {
-    public interface ITimeCalculator
-    {
-        double CalculateTime(double distance, Weather.IWeatherModifier weatherModifier);
-    }
-
     public abstract class Transport : ITimeCalculator
     {
         public string Name { get; }
@@ -21,79 +16,6 @@ namespace RacingSimulator.Transport
         }
 
         public abstract double CalculateTime(double distance, Weather.IWeatherModifier weatherModifier);
-    }
-
-    public abstract class GroundTransport : Transport
-    {
-        public double RestInterval { get; }
-        public double BaseRestDuration { get; }
-
-        protected GroundTransport(string name, double speed, double restInterval, double baseRestDuration)
-            : base(name, speed)
-        {
-            RestInterval = restInterval;
-            BaseRestDuration = baseRestDuration;
-        }
-
-        private double CalculateRestDuration(int restCount)
-        {
-            return BaseRestDuration * Math.Log(restCount + 1) + BaseRestDuration;
-        }
-
-        public override double CalculateTime(double distance, Weather.IWeatherModifier weatherModifier)
-        {
-            double totalTime = 0;
-            double traveledDistance = 0;
-            int restCount = 0;
-
-            while (traveledDistance < distance)
-            {
-                double travelBeforeRest = Speed * RestInterval;
-
-                if (traveledDistance + travelBeforeRest >= distance)
-                {
-                    totalTime += (distance - traveledDistance) / Speed;
-                    break;
-                }
-
-                totalTime += RestInterval;
-                traveledDistance += travelBeforeRest;
-                totalTime += CalculateRestDuration(restCount);
-                restCount++;
-            }
-
-            double baseTime = totalTime;
-            return weatherModifier.ModifyTime(baseTime);
-        }
-    }
-
-    public abstract class AirTransport : Transport
-    {
-        protected AirTransport(string name, double speed) : base(name, speed) { }
-
-        public override double CalculateTime(double distance, Weather.IWeatherModifier weatherModifier)
-        {
-            double acceleration = GetAccelerationFactor(distance);
-            double finalSpeed = Speed;
-            double timeToReachFinalSpeed = finalSpeed / acceleration;
-            double distanceToReachFinalSpeed = (finalSpeed * finalSpeed) / (2 * acceleration);
-
-            double baseTime;
-            if (distance <= distanceToReachFinalSpeed)
-            {
-                baseTime = Math.Sqrt(2 * distance / acceleration);
-            }
-            else
-            {
-                double remainingDistance = distance - distanceToReachFinalSpeed;
-                double timeToCoverRemainingDistance = remainingDistance / finalSpeed;
-                baseTime = timeToReachFinalSpeed + timeToCoverRemainingDistance;
-            }
-
-            return weatherModifier.ModifyTime(baseTime);
-        }
-
-        protected abstract double GetAccelerationFactor(double distance);
     }
 
     public class AvailableTransports
@@ -214,66 +136,6 @@ namespace RacingSimulator.Transport
                     AnsiConsole.MarkupLine("[bold red]Ошибка:[/] введите корректное действие из списка.\n");
                 }
             }
-        }
-    }
-
-    public class SevenLeagueBoots : GroundTransport
-    {
-        public SevenLeagueBoots() : base("Сапоги-скороходы", 15, 5, 1) { }
-    }
-
-    public class PumpkinCarriage : GroundTransport
-    {
-        public PumpkinCarriage() : base("Карета-тыква", 10, 4, 1.5) { }
-    }
-
-    public class ChickenLeggedHut : GroundTransport
-    {
-        public ChickenLeggedHut() : base("Избушка на курьих ножках", 8, 6, 2) { }
-    }
-
-    public class Centaur : GroundTransport
-    {
-        public Centaur() : base("Кентавр", 18, 7, 1) { }
-    }
-
-    public class BabaYagaMortar : AirTransport
-    {
-        public BabaYagaMortar() : base("Ступа Бабы Яги", 12) { }
-
-        protected override double GetAccelerationFactor(double distance)
-        {
-            return distance > 100 ? 1 + 0.01 * (distance - 100) / 100 : 1.0;
-        }
-    }
-
-    public class MagicBroom : AirTransport
-    {
-        public MagicBroom() : base("Метла", 20) { }
-
-        protected override double GetAccelerationFactor(double distance)
-        {
-            return distance > 150 ? Math.Pow(distance / 150, 0.1) : 1.0;
-        }
-    }
-
-    public class FlyingCarpet : AirTransport
-    {
-        public FlyingCarpet() : base("Ковер-самолет", 25) { }
-
-        protected override double GetAccelerationFactor(double distance)
-        {
-            return distance > 120 ? 1 + Math.Log(distance / 120) : 1.0;
-        }
-    }
-
-    public class FlyingShip : AirTransport
-    {
-        public FlyingShip() : base("Летучий корабль", 22) { }
-
-        protected override double GetAccelerationFactor(double distance)
-        {
-            return distance > 200 ? 1 + 0.0001 * Math.Pow(distance - 200, 2) : 1.0;
         }
     }
 }
